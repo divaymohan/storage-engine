@@ -1,5 +1,3 @@
-# bitcask_engine.py
-
 import os
 import random
 import struct
@@ -37,7 +35,7 @@ class Segment:
         self.file.close()
 
 
-class Bitcask:
+class StorageEngine:
     def __init__(self, directory='data'):
         os.makedirs(directory, exist_ok=True)
         self.directory = directory
@@ -129,7 +127,7 @@ class Bitcask:
 
 
 # Driver Code
-db = Bitcask()
+db = StorageEngine()
 db.put("user2028","value2028")
 db.put("user2029","value2020")
 print(db.get("user2028"))
